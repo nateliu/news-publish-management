@@ -48,7 +48,7 @@ export default function SideMenu() {
     }
 
     useEffect(() => {
-        axios.get("/rights?_embed=children").then(res => {
+        axios.get("/api/rights?_embed=children").then(res => {
             // console.log(res.data)
             setMenuList(res.data);
         })

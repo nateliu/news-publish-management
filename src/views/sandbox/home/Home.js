@@ -5,7 +5,7 @@ import axios from 'axios'
 export default function Home() {
     const jsonServerOperation = () => {
         // get
-        axios.get("/rights?_embed=children").then(res=>{
+        axios.get("/api/rights?_embed=children").then(res=>{
             console.log(res.data);
         })
     }

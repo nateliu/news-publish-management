@@ -1,1 +1,1 @@
-web: npm run json-server-prod
+web: npm run json-server

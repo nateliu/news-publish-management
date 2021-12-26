@@ -10,6 +10,7 @@ import RoleList from './right-manage/RoleList'
 import UserList from './user-manage/UserList'
 
 import './NewsSandBox.css'
+import { auto } from 'async'
 
 const { Content } = Layout;
 
@@ -25,6 +26,7 @@ export default function NewsSandBox() {
                         margin: '24px 16px',
                         padding: 24,
                         minHeight: 280,
+                        overflow: 'auto',
                     }}>
                     <Routes>
                         <Route path="home" element={<Home />} />
