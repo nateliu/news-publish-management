@@ -73,7 +73,7 @@ export default function UserList() {
 
     const confirmDelete = item => {
         confirm({
-            title: 'Do you Want to delete these items?',
+            title: 'Do you Want to delete this item?',
             icon: <ExclamationCircleOutlined />,
             onOk() {
                 // console.log('OK');
