@@ -6322,6 +6322,11 @@ npm-run-path@^4.0.1:
   dependencies:
     path-key "^3.0.0"
 
+nprogress@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.npmmirror.com/nprogress/download/nprogress-0.2.0.tgz#cb8f34c53213d895723fcbab907e9422adbcafb1"
+  integrity sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==
+
 nth-check@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/nth-check/-/nth-check-1.0.2.tgz#b2bd295c37e3dd58a3bf0700376663ba4d9cf05c"
@@ -7923,6 +7928,14 @@ react-scripts@5.0.0:
   optionalDependencies:
     fsevents "^2.3.2"
 
+react-tsparticles@^1.37.6:
+  version "1.37.6"
+  resolved "https://registry.npmmirror.com/react-tsparticles/download/react-tsparticles-1.37.6.tgz#6b30803cae8ca3dfd0e0a7793b54f12ce183ab2d"
+  integrity sha512-bz+4ZS5y7uv1vUlt5Il0Bit4Gl4FL7wPYQIhfa/JmOLV6B7B3dsnW6PD8y/9IBf1T93TLB9K1tGx90GmTszZ1Q==
+  dependencies:
+    fast-deep-equal "^3.1.3"
+    tsparticles "^1.37.6"
+
 react@^17.0.2:
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
@@ -8999,6 +9012,11 @@ tslib@^2.0.3:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.3.1.tgz#e8a335add5ceae51aa261d32a490158ef042ef01"
   integrity sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==
+
+tsparticles@^1.37.6:
+  version "1.37.6"
+  resolved "https://registry.npmmirror.com/tsparticles/download/tsparticles-1.37.6.tgz#f59951350d116a822c576932a4e057160e01bebf"
+  integrity sha512-DGmlIij32gqZJ++WFJO6MxvO9wZjwfhYEpGdwHWF/+zVBkHQSLEuM97ffxFwgzCq6hQ37ljECmk2zwooOxeGBA==
 
 tsutils@^3.21.0:
   version "3.21.0"

@@ -6,10 +6,41 @@ const { Option } = Select;
 const UserForm = forwardRef((props, ref) => {
     const [isDisableRegion, setIsDisableRegion] = useState(false);
 
+    const { roleId, region } = JSON.parse(localStorage.getItem('token'));
+    const roleObj = {
+        "1": "superadmin",
+        "2": "admin",
+        "3": "editor",
+    }
+
+    const checkRegionDisabled = item => {
+        if (roleObj[roleId] === 'superadmin') {
+            return false;
+        }
+
+        if (props.isUpdate) {
+            return true;
+        }
+
+        return item.value !== region;
+    }
+
+    const checkRoleDisabled = item => {
+        if (roleObj[roleId] === 'superadmin') {
+            return false;
+        }
+
+        if (props.isUpdate) {
+            return true;
+        }
+
+        return roleObj[item.id] !== 'editor';
+    }
+
     useEffect(() => {
         setIsDisableRegion(props.updateDisableRegion);
     }, [props.updateDisableRegion]);
-    
+
     return (
         <Form layout="vertical" ref={ref} >
             <Form.Item
@@ -31,7 +62,7 @@ const UserForm = forwardRef((props, ref) => {
                 <Select disabled={isDisableRegion}>
                     {
                         props.regionList.map(item =>
-                            <Option value={item.value} key={item.id}>{item.title}</Option>
+                            <Option value={item.value} key={item.id} disabled={checkRegionDisabled(item)}>{item.title}</Option>
                         )
                     }
                 </Select>
@@ -50,7 +81,7 @@ const UserForm = forwardRef((props, ref) => {
                 }}>
                     {
                         props.roleList.map(item =>
-                            <Option value={item.id} key={item.id}>{item.roleName}</Option>
+                            <Option value={item.id} key={item.id} disabled={checkRoleDisabled(item)}>{item.roleName}</Option>
                         )
                     }
                 </Select>

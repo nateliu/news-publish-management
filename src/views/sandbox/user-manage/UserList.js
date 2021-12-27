@@ -8,7 +8,6 @@ import {
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import UserForm from '../../../components/user-manage/UserForm';
-import { update } from 'lodash';
 
 const { confirm } = Modal;
 
@@ -24,6 +23,7 @@ export default function UserList() {
     const addForm = useRef(null);
     const updateForm = useRef(null);
 
+    const { roleId, region, username } = JSON.parse(localStorage.getItem('token'));
     const columns = [
         {
             title: '区域',
@@ -164,11 +164,22 @@ export default function UserList() {
     }
 
     useEffect(() => {
+        const roleObj = {
+            "1": "superadmin",
+            "2": "admin",
+            "3": "editor",
+        }
+
         axios.get(`/api/users?_expand=role`).then(res => {
             // console.log(res.data);
-            setDataSource(res.data);
-        })
-    }, []);
+            // setDataSource(res.data);
+            const list = res.data;
+            setDataSource(roleObj[roleId] === 'superadmin' ? list : [
+                ...list.filter(item => item.username === username),
+                ...list.filter(item => item.region === region && roleObj[item.roleId] === 'editor')
+            ]);
+        });
+    }, [roleId, region, username]);
 
     useEffect(() => {
         axios.get(`/api/regions`).then(res => {
@@ -207,7 +218,7 @@ export default function UserList() {
                     setUpdateDisableRegion(!updateDisableRegion);
                 }}
                 onOk={() => updateFormOk()}>
-                <UserForm regionList={regionList} roleList={roleList} updateDisableRegion={updateDisableRegion} ref={updateForm} />
+                <UserForm regionList={regionList} roleList={roleList} updateDisableRegion={updateDisableRegion} isUpdate = {true} ref={updateForm} />
             </Modal>
         </div>
     )

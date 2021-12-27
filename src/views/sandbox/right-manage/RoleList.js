@@ -66,7 +66,7 @@ export default function RoleList() {
     const handleOk = () => {
         setIsModalVisible(false);
         setDataSource(dataSource.map(item=>{
-            if(item.id == currentId) {
+            if(item.id === currentId) {
                 return {
                     ...item,
                     rights: currentRights

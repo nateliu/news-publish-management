@@ -28,11 +28,12 @@ export default function SideMenu() {
 
     const selectKeys = [location.pathname]; 
     const openKeys = ["/" + location.pathname.split("/")[1]];
+    const { role: { rights } } = JSON.parse(localStorage.getItem('token'));
 
     const [menuList, setMenuList] = useState([]);
 
     const checkPagePermission = (item) => {
-        return item.pagepermission === 1
+        return item.pagepermission === 1 && rights.includes(item.key);
     }
 
     const renderMenu = (menuList) => {
