@@ -79,7 +79,8 @@ export default function AuditList() {
 
     const handlePublish = item => {
         axios.patch(`/api/news/${item.id}`, {
-            publishStats: 2
+            publishStats: 2,
+            publishTime: Date.now()
         }).then(res => {
             navigate('/publish-manage/published');
             notification.info({
