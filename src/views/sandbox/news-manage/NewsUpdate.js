@@ -13,8 +13,6 @@ export default function NewsUpdate() {
         wrapperCol: { span: 20 },
     };
 
-    const User = JSON.parse(localStorage.getItem('token'));
-
     const [current, setCurrent] = useState(0);
     const [categoryList, setCategoryList] = useState([]);
     const [formInfo, setFormInfo] = useState({});
