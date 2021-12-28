@@ -30,12 +30,13 @@ export default function Home() {
     useEffect(() => {
         axios.get(`/api/news?publisthState=2&_expand=category&_sort=star&_order=desc&_limit=6`).then(res => {
             // console.log(res.data);
-            setViewList(res.data);
+            setStarList(res.data);
         })
     }, []);
 
     useEffect(() => {
         axios.get(`/api/news?publisthState=2&_expand=category`).then(res => {
+            // console.log(res.data);
             setAllList(res.data);
             const viewData = _.groupBy(res.data, item => item.category.title);
             // console.log(viewData);
@@ -45,7 +46,7 @@ export default function Home() {
         return () => {
             window.onresize = null;
         }
-    }, []);
+    });
 
     const renderBarView = (obj) => {
         const option = {
