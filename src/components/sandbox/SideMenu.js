@@ -9,6 +9,7 @@ import {
 import './index.css'
 import { useLocation, useNavigate } from 'react-router';
 import axios from 'axios';
+import { connect } from 'react-redux';
 
 const { Sider } = Layout;
 const { SubMenu } = Menu;
@@ -22,11 +23,11 @@ const iconList = {
     '/right-manage/right/list': <CrownOutlined />,
 }
 
-export default function SideMenu() {
+function SideMenu(props) {
     const navigate = useNavigate();
     const location = useLocation();
 
-    const selectKeys = [location.pathname]; 
+    const selectKeys = [location.pathname];
     const openKeys = ["/" + location.pathname.split("/")[1]];
     const { role: { rights } } = JSON.parse(localStorage.getItem('token'));
 
@@ -56,7 +57,7 @@ export default function SideMenu() {
     }, [])
 
     return (
-        <Sider trigger={null} collapsible collapsed={false}>
+        <Sider trigger={null} collapsible collapsed={props.isCollapsed}>
             <div style={{ display: 'flex', height: '100%', flexDirection: 'column' }}>
                 <div className="logo">News Publish Management</div>
                 <div style={{ flex: 1, 'overflow': 'auto' }}>
@@ -68,3 +69,7 @@ export default function SideMenu() {
         </Sider>
     )
 }
+
+const mapStateToProps = ({ CollapsedReducer: { isCollapsed } }) => ({ isCollapsed });
+
+export default connect(mapStateToProps)(SideMenu);

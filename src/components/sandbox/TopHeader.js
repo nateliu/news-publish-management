@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Avatar, Dropdown, Layout, Menu } from 'antd';
 import {
@@ -7,16 +7,20 @@ import {
   UserOutlined,
 } from '@ant-design/icons';
 import { useNavigate } from 'react-router';
+import { connect } from 'react-redux';
 
 const { Header } = Layout;
 
-export default function TopHeader() {
-  const [collapsed, setCollapsed] = useState(false)
+function TopHeader(props) {
+  // NOTE: changed to redux, state is not neccessary.
+  // const [collapsed, setCollapsed] = useState(false)
 
   const navigate = useNavigate();
 
   const changeCollapsed = () => {
-    setCollapsed(!collapsed);
+    // NOTE: changed to redux, state is not neccessary.
+    // setCollapsed(!collapsed);
+    props.changeCollapsed();
   }
 
   const { role: { roleName }, username } = JSON.parse(localStorage.getItem('token'));
@@ -35,7 +39,8 @@ export default function TopHeader() {
 
   return (
     <Header className="site-layout-background" style={{ padding: '0 16px' }}>
-      {collapsed ? <MenuUnfoldOutlined onClick={changeCollapsed} /> : <MenuFoldOutlined onClick={changeCollapsed} />}
+      {/* NOTE: changed to redux, below collapsed should to use Props's property. */}
+      {props.isCollapsed ? <MenuUnfoldOutlined onClick={changeCollapsed} /> : <MenuFoldOutlined onClick={changeCollapsed} />}
       <div style={{ float: "right" }} >
         <span>Welcome <span style={{ color: '#1890ff' }}> {username}</span></span>
         <Dropdown overlay={menu}>
@@ -45,3 +50,20 @@ export default function TopHeader() {
     </Header>
   )
 }
+
+const mapStateToProps = ({ CollapsedReducer: { isCollapsed } }) => {
+  return {
+    isCollapsed
+  }
+}
+
+const mapDispatchToProps = {
+  changeCollapsed() {
+    return {
+      type: "change_collapsed",
+      // payload:''
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(TopHeader);
