@@ -1,10 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+
 import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 import './util/http'
+import './i18n/config';
+
+import './index.css';
 
 ReactDOM.render(
   <App />,

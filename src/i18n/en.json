@@ -1,0 +1,15 @@
+{
+    "Login": {
+        "title": "News Publish Management",
+        "signin":"Sign In",
+        "validateUserName": "Please input your Username!",
+        "validatePassword": "Please input your Password!",
+        "validateLanguage": "Please select your Language!",
+        "validateErrorMessage": "UserName or Password is wrong!"
+    },
+    "TopHeader": {
+        "languageTitle": "Language",
+        "welcomeMessage": "Welcome",
+        "signout":"Sign Out"
+    }
+}

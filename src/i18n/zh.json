@@ -1,0 +1,15 @@
+{
+    "Login": {
+        "title": "全球新闻发布系统",
+        "signin":"登陆",
+        "validateUserName": "请输入正确用户名!",
+        "validatePassword": "请输入正确的密码!",
+        "validateLanguage": "请选择语言!",
+        "validateErrorMessage": "用户名或密码不正确!"
+    },
+    "TopHeader": {
+        "languageTitle": "语言",
+        "welcomeMessage": "欢迎",
+        "signout":"退出"
+    }
+}

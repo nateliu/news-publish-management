@@ -46,7 +46,7 @@ export default function Home() {
         return () => {
             window.onresize = null;
         }
-    });
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const renderBarView = (obj) => {
         const option = {
