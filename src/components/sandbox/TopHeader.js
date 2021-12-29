@@ -7,7 +7,7 @@ import {
   UserOutlined,
   GlobalOutlined,
 } from '@ant-design/icons';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
@@ -45,7 +45,7 @@ function TopHeader(props) {
       </Menu.SubMenu>
       <Menu.Item danger key='loginOutMenu' onClick={() => {
         localStorage.removeItem('token');
-        navigate('/login');
+        navigate('/login', { replace: true });
       }}>{t('TopHeader.signout')}</Menu.Item>
     </Menu>
   );

@@ -43,7 +43,7 @@ export default function Audit() {
         axios.patch(`/api/news/${item.id}`, {
             auditState,
             publishState
-        }).then(res=>{
+        }).then(res => {
             notification.info({
                 message: `Notification`,
                 description:

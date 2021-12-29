@@ -2,7 +2,7 @@ import { Button, Table, Tag, notification } from 'antd';
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 export default function AuditList() {
     const { username } = JSON.parse(localStorage.getItem('token'));
@@ -63,7 +63,7 @@ export default function AuditList() {
         axios.patch(`/api/news/${item.id}`, {
             auditStats: 0
         }).then(res => {
-            navigate('/news-manage/draft');
+            navigate('/news-manage/draft', { replace: true });
             notification.info({
                 message: `Notification`,
                 description:
@@ -74,7 +74,7 @@ export default function AuditList() {
     }
 
     const handleUpdate = item => {
-        navigate(`/news-manage/update/${item.id}`);
+        navigate(`/news-manage/update/${item.id}`, { replace: true });
     }
 
     const handlePublish = item => {
@@ -82,7 +82,7 @@ export default function AuditList() {
             publishStats: 2,
             publishTime: Date.now()
         }).then(res => {
-            navigate('/publish-manage/published');
+            navigate('/publish-manage/published', { replace: true });
             notification.info({
                 message: `Notification`,
                 description:

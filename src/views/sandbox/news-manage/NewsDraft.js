@@ -8,7 +8,7 @@ import {
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 const { confirm } = Modal;
 
@@ -49,7 +49,7 @@ export default function NewsDraft() {
                 return <div>
                     <Button shape='circle' icon={<DeleteOutlined />} onClick={() => confirmDelete(item)} />
                     <Button type='primary' shape='circle' icon={<EditOutlined />} onClick={() => {
-                        navigate(`/news-manage/update/${item.id}`)
+                        navigate(`/news-manage/update/${item.id}`, { replcae: true })
                     }} />
                     <Button danger shape='circle' icon={<UploadOutlined />} onClick={() => handleAudit(item.id)} />
 
@@ -62,7 +62,7 @@ export default function NewsDraft() {
         axios.patch(`/api/news/${id}`, {
             auditState: 1
         }).then(res => {
-            navigate('/audit-manage/list');
+            navigate('/audit-manage/list', {replace: true});
             notification.info({
                 message: `Notification`,
                 description:

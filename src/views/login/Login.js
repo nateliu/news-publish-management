@@ -3,7 +3,7 @@ import { Form, Input, Button, message, Select } from 'antd';
 import { UserOutlined, LockOutlined, GlobalOutlined } from '@ant-design/icons';
 import Particles from "react-tsparticles";
 import axios from 'axios';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation, Trans } from 'react-i18next';
 import i18n from 'i18next';
 
@@ -27,7 +27,7 @@ export default function Login() {
                 message.error(t('Login.validateErrorMessage'))
             } else {
                 localStorage.setItem('token', JSON.stringify(res.data[0]));
-                navigate('/');
+                navigate('/', { replace: true });
             }
         })
     };

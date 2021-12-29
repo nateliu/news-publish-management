@@ -1,7 +1,7 @@
 import { PageHeader, Steps, Button, Form, Input, Select, message, notification } from 'antd'
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react'
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import NewsEditor from '../../../components/news-manage/NewsEditor';
 import style from './News.module.css'
 const { Step } = Steps;
@@ -59,7 +59,7 @@ export default function NewsAdd() {
             "star": 0,
             "view": 0
         }).then(res => {
-            navigate(auditState === 0 ? '/news-manage/draft' : '/audit-manage/list');
+            navigate(auditState === 0 ? '/news-manage/draft' : '/audit-manage/list', { replace: true });
             notification.info({
                 message: `Notification`,
                 description:

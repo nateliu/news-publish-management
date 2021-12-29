@@ -51,7 +51,7 @@ export default function NewsUpdate() {
             "auditState": auditState,
             "content": content,
         }).then(res => {
-            navigate(auditState === 0 ? '/news-manage/draft' : '/audit-manage/list');
+            navigate(auditState === 0 ? '/news-manage/draft' : '/audit-manage/list', { replace: true });
             notification.info({
                 message: `Notification`,
                 description:
@@ -89,7 +89,7 @@ export default function NewsUpdate() {
         <div>
             <PageHeader
                 className="site-page-header"
-                onBack={() => navigate('/news-manage/draft')}
+                onBack={() => navigate('/news-manage/draft', { replace: true })}
                 title="Update news"
                 subTitle="This is for update news"
             />
