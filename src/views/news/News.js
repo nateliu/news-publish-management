@@ -36,7 +36,7 @@ export default function News() {
                                             pageSize: 3
                                         }}
                                         renderItem={data => <List.Item>
-                                            <a href={`#/detail/${data.id}`}>{data.title}</a>
+                                            <a href={`/detail/${data.id}`}>{data.title}</a>
                                         </List.Item>}
                                     />
                                 </Card>

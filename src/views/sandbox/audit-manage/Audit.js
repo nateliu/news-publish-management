@@ -12,7 +12,7 @@ export default function Audit() {
             title: '新闻标题',
             dataIndex: 'title',
             render: (title, item) => {
-                return <a href={`#/news-manage/preview/${item.id}`}>{title}</a>
+                return <a href={`/news-manage/preview/${item.id}`}>{title}</a>
             }
         },
         {

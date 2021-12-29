@@ -153,7 +153,7 @@ export default function Home() {
                             size="small"
                             dataSource={viewList}
                             renderItem={item => <List.Item>
-                                <a href={`#/news-manage/preview/${item.id}`}>{item.title}</a>
+                                <a href={`/news-manage/preview/${item.id}`}>{item.title}</a>
                             </List.Item>}
                         />
                     </Card>
@@ -164,7 +164,7 @@ export default function Home() {
                             size="small"
                             dataSource={starList}
                             renderItem={item => <List.Item>
-                                <a href={`#/news-manage/preview/${item.id}`}>{item.title}</a>
+                                <a href={`/news-manage/preview/${item.id}`}>{item.title}</a>
                             </List.Item>}
                         />
                     </Card>
